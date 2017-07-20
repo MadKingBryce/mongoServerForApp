@@ -8,9 +8,9 @@ var requireSignin = passport.authenticate('local', {session: false}) //THis is t
 module.exports = function(app){ //sets routes
 	console.log("Exports?")
 	app.get('/',  function(req, res){ //Adding the requireAuth means that we need a token in order for shit to work. 
-		res.send("index.html")
+		res.sendFile("index.html")
 	}) 
-	app.post('/signup', Auth.signup)
-	app.post('/signin',requireSignin, Auth.signin) //the Require signin is jwt thing. 
+	app.post('/api/signup', Auth.signup)
+	app.post('/api/signin',requireSignin, Auth.signin) //the Require signin is jwt thing. 
 
 }
