@@ -1,12 +1,12 @@
 var User = require('../models/user');
 var jwt = require('jwt-simple'); //Allows us to create a web token
-var config = require('../config');
+// var config = require('../config');
 var mongoose = require('mongoose')
 
 mongoose.connect('mongodb://greenebj:50011055Bg@cluster0-shard-00-00-mzj5k.mongodb.net:27017,cluster0-shard-00-01-mzj5k.mongodb.net:27017,cluster0-shard-00-02-mzj5k.mongodb.net:27017/bucket?ssl=true&replicaSet=Cluster0-shard-0&authSource=admin')
 function createUserToken(user) {
 	var timestamp = new Date().getTime()
-	return jwt.encode({sub: user.id, iat: timestamp}, config.secret)
+	return jwt.encode({sub: user.id, iat: timestamp}, "config.secret")
 }
 function createUserToken(user){
 	var timestamp = new Date().getTime();
